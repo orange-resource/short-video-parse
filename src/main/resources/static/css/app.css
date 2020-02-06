@@ -1,0 +1,36 @@
+
+body {
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+    background-color: #F5F5F5;
+}
+
+html {
+    height: 100%;
+}
+
+.navigation-bar-box {
+    height: 60px;
+    background-color: #409EFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navigation-bar-icon {
+    width: 30px;
+    margin-left: 30px;
+}
+.navigation-bar-title {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.main-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    min-height: 300px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
+}

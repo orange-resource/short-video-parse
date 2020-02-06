@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: short-video-parse-web
+  thymeleaf:
+    cache: false
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connection-init-sql: SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY','')
+      connection-test-query: SELECT 1
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1765000
+      maximum-pool-size: 15
+      minimum-idle: 10
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/com_ongsat_short_video_parse_db?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+
+server:
+  port: 9065
+
+logging:
+  config: classpath:logback.xml
