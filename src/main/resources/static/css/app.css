@@ -5,7 +5,7 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
-    background-color: #F5F5F5;
+    background-color: #EBEEF5;
 }
 
 html {
@@ -31,6 +31,16 @@ html {
 .main-box {
     background-color: #ffffff;
     border-radius: 10px;
-    min-height: 300px;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
+    padding: 10px;
+}
+
+.footer-box {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #E4E7ED;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
