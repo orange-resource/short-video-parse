@@ -36,6 +36,8 @@ spring:
     password: root
 
 server:
+  context:
+    path: /
   port: 9065
 
 logging:
