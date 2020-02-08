@@ -7,8 +7,6 @@ import lombok.Setter;
 @Getter
 public class VideoParseDO {
 
-    private Boolean isSuccess;
-
     private String videoUrl;
 
     private String videoImageUrl;

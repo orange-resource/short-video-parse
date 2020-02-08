@@ -34,6 +34,13 @@ html {
     padding: 10px;
 }
 
+.video-box {
+    border-top: 1px dashed #409EFF;
+    margin-top: 30px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
 .footer-box {
     margin-top: 20px;
     display: flex;

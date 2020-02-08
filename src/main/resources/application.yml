@@ -5,6 +5,21 @@ spring:
   thymeleaf:
     cache: false
 
+  redis:
+    database: 0
+    expire: 1800
+    host: localhost
+    password: ''
+    pool:
+      max:
+        active: 8
+        idle: 8
+        wait: -1
+      min:
+        idle: 0
+    port: 6379
+    timeout: 5000
+
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     hikari:

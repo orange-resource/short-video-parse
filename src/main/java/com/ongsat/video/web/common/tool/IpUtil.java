@@ -1,4 +1,4 @@
-package com.ongsat.video.web.util;
+package com.ongsat.video.web.common.tool;
 
 import cn.hutool.core.util.StrUtil;
 
@@ -36,7 +36,7 @@ public class IpUtil {
         if(StrUtil.isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)){
             XFor=request.getRemoteAddr();
         }
-        return XFor;
+        return XFor.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : XFor;
     }
 
 }

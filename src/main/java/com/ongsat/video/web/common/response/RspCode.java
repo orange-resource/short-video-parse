@@ -37,10 +37,13 @@ public enum RspCode {
     VIDEO_CONTENT_IS_TOO_LARGE(3012, "上传视频大小不能超过5MB哟"),
     REPEAT_ITEM(3013, "不能添加重复项"),
     VERIFY_CODE_NOT_EXIST(3014, "验证码不存在"),
+    URL_NOT_FOUND(3015, "当前输入的链接不支持解析哟"),
+    URL_PARSE_TOO_LARGE(3016, "今日解析次数过多，明天日再来吧!!!"),
 
     ACCOUNT_ERROR(5001, "用户名或者密码错误"),
     UPLOAD_ERROR(5002, "上传失败"),
     FILE_EMPTY(5003, "不能上传空文件"),
+    PARSE_ERROR(5004, "解析失败"),
     ;
 
     private int code;
