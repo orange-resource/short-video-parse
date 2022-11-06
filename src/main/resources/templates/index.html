@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>短视频解析无水印 - 橘子软件</title>
+
+    <meta name="keywords" content="抖音去水印，快手去水印，微视去水印，秒拍去水印，小咖秀去水印">
+    <meta name="description" content="短视频解析无水印，目前支持抖音去水印，快手去水印，微视去水印，秒拍去水印，小咖秀去水印">
+
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d625026ace34c9c964176a83d7b19cd5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+
+    <div class="navigation-bar-box">
+        <img class="navigation-bar-icon" src="favicon.ico" >
+        <span class="navigation-bar-title">短视频解析无水印</span>
+    </div>
+
+    <br/>
+    <div class="row" style="margin-left: 0;margin-right: 0;margin-bottom: 20px">
+        <div class="col-xs-1 col-sm-1 col-md-3 col-lg-3"></div>
+        <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6" style="padding-left: 0;padding-right: 0">
+            <div class="alert alert-danger" role="alert">
+                目前支持抖音，快手，微视，小咖秀，秒拍解析无水印，每位用户每天可以解析30次
+            </div>
+            <button id="openOrangePage" type="button" class="btn btn-primary">橘子官网</button>
+            <button id="openOrangeSoftPage" type="button" class="btn btn-success">橘子软件博客</button>
+            <br/><br/>
+            <span class="label label-success" th:text="'累计解析成功次数: ' + ${useCount}"></span>
+<!--            <div class="alert alert-success" role="alert">-->
+<!--                -->
+<!--            </div>-->
+            <div class="main-box">
+                <div class="input-group">
+                    <input id="url" type="text" class="form-control" placeholder="视频链接" style="height: 40px">
+                    <span class="input-group-btn">
+                        <button id="parseButton" class="btn btn-success" type="button" style="height: 40px">解析</button>
+                    </span>
+                </div>
+                <div id="videoBox" class="video-box" style="display: none">
+                    <div class="input-group">
+                        <input id="videoUrl" type="text" class="form-control" placeholder="视频链接" style="height: 40px">
+                        <span class="input-group-btn">
+                        <button id="copyUrlButton" class="btn btn-success" type="button" style="height: 40px">复制视频链接</button>
+                    </span>
+                    </div>
+                    <img id="imgUrl" src="" style="margin-top: 10px;width: 100%" />
+                </div>
+
+                <div class="footer-box">
+                    © CopyRight 2017-2020 xxxxxxx
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-3 col-lg-3"></div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        $("#parseButton").click(function () {
+            var url = $("#url").val();
+            if (url === "") {
+                alert("请输入视频链接")
+            } else {
+                $("#parseButton").prop("disabled", true);
+                $.ajax({
+                    url: '/api/parse/video',
+                    type: 'post',
+                    data: { url },
+                    dataType: 'json',
+                    success: function (res) {
+                        $("#parseButton").prop("disabled", false);
+                        if (res.code === 200) {
+                            $("#videoBox").show();
+                            $("#videoUrl").val(res.data.playUrl)
+                            $("#imgUrl").attr("src", res.data.imgUrl)
+                            setTimeout(function () {
+                                alert("解析成功，今日已解析次数:" + res.data.useTotal)
+                            }, 500)
+                        } else {
+                            alert(res.message);
+                        }
+                    },
+                    error: function(arg1) {
+                        $("#parseButton").prop("disabled", false);
+                        alert("解析异常，请重新试试!!!")
+                    }
+                })
+            }
+        })
+
+        $("#copyUrlButton").click(function () {
+            var copyText = $("#videoUrl"); // 获取对象
+            copyText .select(); // 选择
+            document.execCommand("Copy"); // 执行复制
+            alert("复制成功！");
+        })
+
+        $("#openOrangePage").click(function () {
+            window.open("https://github.com/kylelin1998")
+        })
+        $("#openOrangeSoftPage").click(function () {
+            window.open("https://github.com/kylelin1998")
+        })
+    </script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+    <script>
+        (function(){
+            var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+            document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
+</body>
+</html>
